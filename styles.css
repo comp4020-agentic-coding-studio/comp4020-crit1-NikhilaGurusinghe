@@ -26,3 +26,52 @@ a {
   white-space: nowrap;
   border-width: 0;
 }
+
+@keyframes sway-rotation-1 {
+  0% {
+    transform: rotate(60deg);
+  }
+  70% {
+    transform: rotate(-50deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes full-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes up-and-down {
+  0% {
+    transform: rotate(25deg);
+  }
+  70% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
+
+.swaying-1 {
+  animation: sway-rotation-1 4s ease-out infinite;
+}
+
+.fully-rotate-slow {
+  animation: full-rotation 5s linear infinite;
+}
+
+.fully-rotate-fast {
+  animation: full-rotation 3s linear infinite;
+}
+
+.eye_glance {
+  animation: up-and-down 1s ease-in-out infinite 2s;
+}
