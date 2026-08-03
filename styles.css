@@ -6,11 +6,6 @@ body {
   color: #1a1a1a;
 }
 
-main {
-  /* max-width: 40rem; */
-  /* margin: 0 auto; */
-}
-
 a {
   color: #0b5fff;
 }
@@ -20,51 +15,32 @@ a {
 }
 
 #container h1 h2 h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
-/* the "container" is what wraps your entire website */
-/* if you want something (like the header) to be Wider than
-  the other elements, you will need to move that div outside
-  of the container */
 #container {
   max-width: 1100px;
-  /* this is the width of your layout! */
-  /* if you change the above value, scroll to the bottom
-    and change the media query according to the comment! */
   margin: 0 auto;
-  /* this centers the entire page */
   color: white;
 }            
 
-/* the area below is for all links on your page
-    EXCEPT for the navigation */
 #container a {
   color: #757ade;
   text-underline-offset: 2px;
   font-weight: bold;
-  /* if you want to remove the underline
-    you can add a line below here that says:
-    text-decoration:none; */
 }            
 
 #flex {
   display: flex;
 }
 
-/* this colors BOTH sidebars
-  if you want to style them separately,
-  create styles for #leftSidebar and #rightSidebar */
 aside {
   width: 250px;
   padding: 20px;
   font-size: smaller;
-  /* this makes the sidebar text slightly smaller */
 }
 
-/* this is the color of the main content area,
-  between the sidebars! */
 main {
   background-color: #a8abde;
   flex: 1;
