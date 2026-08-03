@@ -7,12 +7,115 @@ body {
 }
 
 main {
-  max-width: 40rem;
-  margin: 0 auto;
+  /* max-width: 40rem; */
+  /* margin: 0 auto; */
 }
 
 a {
   color: #0b5fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#container h1 h2 h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* the "container" is what wraps your entire website */
+/* if you want something (like the header) to be Wider than
+  the other elements, you will need to move that div outside
+  of the container */
+#container {
+  max-width: 1100px;
+  /* this is the width of your layout! */
+  /* if you change the above value, scroll to the bottom
+    and change the media query according to the comment! */
+  margin: 0 auto;
+  /* this centers the entire page */
+  color: white;
+}            
+
+/* the area below is for all links on your page
+    EXCEPT for the navigation */
+#container a {
+  color: #757ade;
+  text-underline-offset: 2px;
+  font-weight: bold;
+  /* if you want to remove the underline
+    you can add a line below here that says:
+    text-decoration:none; */
+}            
+
+#flex {
+  display: flex;
+}
+
+/* this colors BOTH sidebars
+  if you want to style them separately,
+  create styles for #leftSidebar and #rightSidebar */
+aside {
+  width: 250px;
+  padding: 20px;
+  font-size: smaller;
+  /* this makes the sidebar text slightly smaller */
+}
+
+/* this is the color of the main content area,
+  between the sidebars! */
+main {
+  background-color: #a8abde;
+  flex: 1;
+  padding: 20px;
+  order: 2;
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
+}
+
+section {
+  border: 1px dashed white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#headerArea {
+  margin-bottom: 20px;
+}
+
+#leftSidebar {
+  border-top: 1px dashed white;
+  border-left: 1px dashed white;
+  border-bottom: 1px dashed white;
+  background-color: #cdabeb;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  order: 1;
+}
+
+#rightSidebar {
+  border-top: 1px dashed white;
+  border-right: 1px dashed white;
+  border-bottom: 1px dashed white;
+  background-color: #cdabeb;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  order: 3;
+}
+
+.subway-tile-background {
+  background-image: url("/images/backgrounds/pink-static.gif");
+  background-repeat: repeat;
+  background-size: 100px;
+}
+
+.noise-background {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg  xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600  600'%3E%3Cfilter id='a'%3E%3CfeTurbulence  type='fractalNoise' baseFrequency='.65'  numOctaves='3'  stitchTiles='stitch'/%3E%3CfeColorMatrix  type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 1  0 0 0 1 0'/%3E%3C/filter%3E%3Crect  width='100%25' height='100%25' filter='url(%23a)' /%3E%3C/svg%3E"); 
+  background-repeat: repeat;
+  background-size: 10000px;
+ 
 }
 
 .sr-only {
@@ -25,6 +128,16 @@ a {
   /* clip: rect(0, 0, 0, 0); */
   white-space: nowrap;
   border-width: 0;
+}
+
+.no-interact {
+  user-select: none;
+  -drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  user-select: none;
 }
 
 @keyframes sway-rotation-1 {
