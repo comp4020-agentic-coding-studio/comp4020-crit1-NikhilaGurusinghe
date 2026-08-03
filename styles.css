@@ -4,7 +4,10 @@ body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
   color: #1a1a1a;
+  cursor: url("/images/cursors/cat_cursor.gif"), auto;
 }
+
+
 
 a {
   color: #0b5fff;
@@ -15,17 +18,23 @@ a {
 }
 
 @font-face {
-  font-family: "Retrogression";
-  src: url("/fonts/retrogression/Retrogression-Regular.otf") format("opentype"),
-       url("/fonts/retrogression/Retrogression-Regular.ttf") format("truetype");
+  font-family: "Cavalhatriz";
+  src: url("/fonts/cavalhatriz/Cavalhatriz.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Cavalhatriz";
-  src: url("/fonts/cavalhatriz/Cavalhatriz.ttf") format("truetype");
+  font-family: "Pixel Arial";
+  src: url("/fonts/pixel_arial/PIXEARG_.TTF") format("truetype");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixel Arial";
+  src: url("/fonts/pixel_arial/PIXEAB_.TTF") format("truetype");
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -52,6 +61,28 @@ h3 {
   letter-spacing: 1px;
   font-size: large;
 
+}
+
+p {
+  font-family: "Pixel Arial", sans-serif;
+  font-size: 10.5px;
+}
+
+strong {
+  font-family: "Pixel Arial", sans-serif;
+  font-weight: bold;
+  font-size: 10.5px;
+}
+
+b {
+  font-family: "Pixel Arial", sans-serif;
+  font-weight: bold;
+  font-size: 10.5px;
+}
+
+ul {
+  font-family: "Pixel Arial", sans-serif;
+  font-size: 10.5px;
 }
 
 #container {
