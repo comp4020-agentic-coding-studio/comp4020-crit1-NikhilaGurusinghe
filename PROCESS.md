@@ -21,14 +21,7 @@ The modern web is very difficult to the web of in the 00s and especially the 90s
 
 I didn't use an agent, I googled when I needed help and I asked the llm like two questions. So I'll focus on that.
 
-I wanted to change the colour of a tiled noise background that I have on my homepage to be something other than the boring default grey that it usually is. Hence, I just asked the llm how to do it and showed my current boring noisy background css. Then the llm gave me 2 options i could copy and paste into my css to remedy the issue, with one being just changing the background colour the noise is overlayed upon and the other being changing the colours used in the svg that is used as the background-image in css to create a tiled noise background on the site. I copied and pasted in the latter -- rather I got the llm to give me a line i could copy and paste in cause the line it gave previously was not very useful -- then i checked in my browser pointing to the localhost port that `pnpm dev` had given me and saw beautiful colours in my websites background noise. This meant it worked, since this is exactly what i wanted.
-4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
-   that went from red to green, a prompt paired with the commit it produced
-
-
-- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
-- a range:
-  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
+I wanted to change the colour of a tiled noise background that I have on my homepage to be something other than the boring default grey that it usually is. Hence, I just asked the llm how to do it and showed my current boring noisy background css. Then the llm gave me 2 options i could copy and paste into my css to remedy the issue, with one being just changing the background colour the noise is overlayed upon and the other being changing the colours used in the svg that is used as the background-image in css to create a tiled noise background on the site. I copied and pasted in the latter -- rather I got the llm to give me a line i could copy and paste in cause the line it gave previously was not very useful -- then i checked in my browser pointing to the localhost port that `pnpm dev` had given me and saw beautiful colours in my websites background noise. This meant it worked, since this is exactly what i wanted. You can see this change in the styles.css file in this commit [`5d879bf`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit1-NikhilaGurusinghe/commit/5d879bff0556843aac7fd61d1ed52fd63bb9d073)
 
 #### llm convo
 #### my prompt
