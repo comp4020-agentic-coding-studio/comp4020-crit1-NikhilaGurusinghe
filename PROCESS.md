@@ -15,60 +15,136 @@ is the requirement, and each brief adds its own word count and moment count.
 
 ## What I built
 
-One paragraph: the thing, and the idea behind it.
+The modern web is very difficult to the web of in the 00s and especially the 90s. The web started off as a between universities and then mostly between people. Largely, now the web is between companies. As a result of this, the way the modern web is styled follows a paradigm that is instantly recognisable as being contemporary or modern. Some examples of this are the use of flex boxes to enable a div to be easily made responsive to a smaller viewport with the change of the flex-direction css property. My site aims to put these modernities to the side (at least as much as I can do in like less than 5 days), and celebrates things like absolute positioning and sites that were full of images, movement and colour. As a result, what I've made is sort of surreal (not in the melting clocks salvador dali kinda way) in my own way. Hope you enjoy it.
 
 ## The moments that mattered
 
-Three or four for an assignment; fewer is fine for a weekly prototype. Keep the
-list short so each moment has room to do all four jobs:
+I didn't use an agent, I googled when I needed help and I asked the llm like two questions. So I'll focus on that.
 
-1. **what happened** --- the problem, or the thing the agent got wrong
-2. **what you did instead of the obvious thing** --- the call you made, and why
-   it beat the obvious one
-3. **how you knew it was right** --- the check you ran, the viewport you looked
-   at, what you read before accepting the diff
+I wanted to change the colour of a tiled noise background that I have on my homepage to be something other than the boring default grey that it usually is. Hence, I just asked the llm how to do it and showed my current boring noisy background css. Then the llm gave me 2 options i could copy and paste into my css to remedy the issue, with one being just changing the background colour the noise is overlayed upon and the other being changing the colours used in the svg that is used as the background-image in css to create a tiled noise background on the site. I copied and pasted in the latter -- rather I got the llm to give me a line i could copy and paste in cause the line it gave previously was not very useful -- then i checked in my browser pointing to the localhost port that `pnpm dev` had given me and saw beautiful colours in my websites background noise. This meant it worked, since this is exactly what i wanted.
 4. **the citation** --- a commit or commit range, a `CLAUDE.md` change, a check
    that went from red to green, a prompt paired with the commit it produced
 
-Jobs 2 and 3 are the ones the repo can't tell a reader on its own, so they're
-where the marks are. The strongest moments are the ones where a correction
-landed in the **harness** rather than in another prompt --- a rule added to
-`CLAUDE.md`, a check wired up, an attempt thrown away: re-prompting until it
-passes is the routine case, and changing what the agent works against is the
-skilled one.
-
-Cite each moment as a link whose text is the commit hash or range and whose
-target is this repo's commit or compare URL, so a reader clicks straight to the
-evidence:
 
 - one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
 - a range:
   [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
 
-To pair a prompt with the commit it produced, quote the prompt (curated, not a
-full transcript) next to the citation:
+#### llm convo
+#### my prompt
 
-> the prompt, verbatim
+> tell me how to change the colour of the noise here   
+  .noise-background {                                  
+    background-color: transparent;                     
+    background-image: url("data:image/svg+xml,%3Csvg   
+  xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600  
+  600'%3E%3Cfilter id='a'%3E%3CfeTurbulence            
+  type='fractalNoise' baseFrequency='.65'              
+  numOctaves='3'                                       
+  stitchTiles='stitch'/%3E%3C/filter%3E%3Crect         
+  width='100%25' height='100%25' filter='url(%23a)'    
+  /%3E%3C/svg%3E");                                    
+    background-repeat: repeat;                         
+    background-size: 182px;                            
+     }  
 
-Screenshots are welcome where one carries the verification better than a
-sentence does. Commit the file to this repo and link it with a **relative**
-path, which is what makes it render on GitHub: `![alt text](docs/before.png)`.
-Images don't count towards the word count and don't replace the citation.
+#### claude
+>Two ways to tint that noise, since raw feTurbulence
+>  output is grayscale:
+>  
+>  Option A — CSS blend mode (easiest, no SVG edit 
+>  needed)
+>
+>  Set an actual color on background-color and blend it
+>  with the noise:
+>
+>  .noise-background {
+>    background-color: #ff6600;         /* your colour 
+>  */
+>    background-blend-mode: multiply;    /* or overlay, 
+>  screen, soft-light */
+>    background-image: url("data:image/svg+xml,...");
+>    background-repeat: repeat;
+>    background-size: 182px;
+>  }
+>
+>  multiply darkens toward your color, screen lightens
+>  toward it, overlay/soft-light give more
+>  contrast-preserving tints. Try a few — it changes the
+>  look a lot.
+>
+>  Option B — Colorize inside the SVG with feColorMatrix
+>
+>  Add a color matrix filter after the turbulence to map
+>  gray values to a specific hue instead of relying on
+>  blending:
+>
+>  %3Cfilter id='a'%3E
+>    %3CfeTurbulence type='fractalNoise'
+>  baseFrequency='.65' numOctaves='3'
+>  stitchTiles='stitch'/%3E
+>    %3CfeColorMatrix type='matrix' values='0 0 0 0 1  0
+>  0 0 0 0.4  0 0 0 0 0  0 0 0 1 0'/%3E
+>  %3C/filter%3E
+>
+>  That matrix example maps the grayscale noise to an
+>  orange tint (R=1, G=0.4, B=0 per pixel, alpha
+>  unchanged). Swap the three color rows (R, G, B) for
+>  whatever 0–1 RGB you want.
+>
+>  For a quick single-color tint, Option A is simplest —
+>  just change background-color and pick a blend mode.
+>  Option B gives more control over how the noise grain
+>  itself looks (contrast/brightness of the grain vs.
+>  flat tint)
 
-### A worked moment, for shape
+#### my prompt
+> give me something i can copy and paste in that uses  
+  155dff into this %3Cfilter id='a'%3E                 
+      %3CfeTurbulence type='fractalNoise'              
+    baseFrequency='.65' numOctaves='3'                 
+    stitchTiles='stitch'/%3E                           
+      %3CfeColorMatrix type='matrix' values='0 0 0 0 1 
+   0                                                   
+    0 0 0 0.4  0 0 0 0 0  0 0 0 1 0'/%3E               
+    %3C/filter%3E      
 
-Delete this section along with the rest of the boilerplate --- it's here to show
-the four jobs in one paragraph, not to be imitated in content.
-
-> The date formatter kept coming back with `toLocaleDateString()` and no locale
-> argument, so the same build rendered differently on my machine and in CI. I'd
-> already re-prompted it twice, which fixed the line but not the habit, so the
-> third time I put the rule in `CLAUDE.md` instead
-> ([`3f9ac21`](https://github.com/YOUR-ORG/YOUR-REPO/commit/3f9ac21)) and added
-> a spec test that fails on a bare `toLocaleDateString`. That's what told me it
-> had actually taken: the test went red against the old code and green against
-> the new, and the next two features it wrote passed it without prompting
-> ([`3f9ac21...b7e0d14`](https://github.com/YOUR-ORG/YOUR-REPO/compare/3f9ac21...b7e0d14)).
+#### claude
+> Here's the filter with #155dff (R=0.082, G=0.365,
+>  B=1) swapped in:
+>
+>  %3Cfilter id='a'%3E
+>      %3CfeTurbulence type='fractalNoise'
+>    baseFrequency='.65' numOctaves='3'
+>    stitchTiles='stitch'/%3E
+>      %3CfeColorMatrix type='matrix' values='0 0 0 0
+>  0.082  0
+>    0 0 0 0.365  0 0 0 0 1  0 0 0 1 0'/%3E
+>    %3C/filter%3E
+>
+>  And the full background-image line, ready to paste:
+>
+>  .noise-background {
+>    background-color: transparent;
+>    background-image: url("data:image/svg+xml,%3Csvg 
+>  xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 
+>  600'%3E%3Cfilter id='a'%3E%3CfeTurbulence 
+>  type='fractalNoise' baseFrequency='.65' 
+>  numOctaves='3' 
+>  stitchTiles='stitch'/%3E%3CfeColorMatrix 
+>  type='matrix' values='0 0 0 0 0.082  0 0 0 0 0.365  0
+>  0 0 0 1  0 0 0 1 0'/%3E%3C/filter%3E%3Crect 
+>  width='100%25' height='100%25' filter='url(%23a)' 
+>  /%3E%3C/svg%3E");
+>    background-repeat: repeat;
+>    background-size: 182px;
+>  }
+>
+>  Each row maps output R/G/B to a fixed value (0.082 /
+>  0.365 / 1) regardless of the noise's own RGB, while
+>  the last row keeps alpha driven by the turbulence —
+>  so the grain shows up as varying opacity of that blue
+>  rather than varying color.
 
 ## Before you ship
 

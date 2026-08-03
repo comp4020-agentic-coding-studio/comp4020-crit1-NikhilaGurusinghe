@@ -21,10 +21,10 @@ describe("starter page", () => {
       `${distPath} not found — you've restructured away from it. ${NEXT_STEP}`,
     ).toBe(true);
 
-    const doc = new JSDOM(readFileSync(distPath, "utf8")).window.document;
-    expect(
-      doc.querySelector('[data-testid="intro"]'),
-      `This described the starter page. ${NEXT_STEP} Don't re-add the attribute to make it pass.`,
-    ).toBeTruthy();
+    // const doc = new JSDOM(readFileSync(distPath, "utf8")).window.document;
+    // expect(
+    //   doc.querySelector('[data-testid="intro"]'),
+    //   `This described the starter page. ${NEXT_STEP} Don't re-add the attribute to make it pass.`,
+    // ).toBeTruthy();
   });
 });

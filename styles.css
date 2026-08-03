@@ -56,11 +56,11 @@ section {
   border-radius: 10px;
 }
 
-#headerArea {
+#header-area {
   margin-bottom: 20px;
 }
 
-#leftSidebar {
+#left-sidebar {
   border-top: 1px dashed white;
   border-left: 1px dashed white;
   border-bottom: 1px dashed white;
@@ -70,7 +70,7 @@ section {
   order: 1;
 }
 
-#rightSidebar {
+#right-sidebar {
   border-top: 1px dashed white;
   border-right: 1px dashed white;
   border-bottom: 1px dashed white;
@@ -101,17 +101,12 @@ section {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  /* clip: rect(0, 0, 0, 0); */
   white-space: nowrap;
   border-width: 0;
 }
 
 .no-interact {
-  user-select: none;
-  -drag: none;
-  -moz-user-select: none;
   -webkit-user-drag: none;
-  -webkit-user-select: none;
   pointer-events: none;
   user-select: none;
 }
@@ -120,9 +115,11 @@ section {
   0% {
     transform: rotate(60deg);
   }
+
   70% {
     transform: rotate(-50deg);
   }
+
   100% {
     transform: rotate(60deg);
   }
@@ -132,6 +129,7 @@ section {
   0% {
     transform: rotate(0deg);
   }
+  
   100% {
     transform: rotate(360deg);
   }
@@ -141,9 +139,11 @@ section {
   0% {
     transform: rotate(25deg);
   }
+
   70% {
     transform: rotate(45deg);
   }
+  
   100% {
     transform: rotate(25deg);
   }
@@ -161,6 +161,6 @@ section {
   animation: full-rotation 3s linear infinite;
 }
 
-.eye_glance {
+.eye-glance {
   animation: up-and-down 1s ease-in-out infinite 2s;
 }
